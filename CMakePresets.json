@@ -4,7 +4,7 @@
         {
             "name": "ninja",
             "displayName": "Ninja",
-            "description": "Default build using Ninja generator and vcpckg as package manager",
+            "description": "Default build using Ninja generator and vcpkg as package manager",
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/build",
             "cacheVariables": {
