@@ -1,7 +1,7 @@
 # -- general project settings --
 cmake_minimum_required(VERSION 3.21)
 
-project(Template)
+project(calculator)
 
 file(GLOB_RECURSE sources src/*.cpp)
 
@@ -29,7 +29,7 @@ endif ()
 
 # -- external packages (essentials included) --
 
-find_package(fmt CONFIG REQUIRED)
+# find_package(fmt CONFIG REQUIRED)
 
 # -- linkage and inclusion --
 
@@ -41,22 +41,11 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${PROJECT_SOURCE_DIR}/libs
 )
 
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
-    fmt::fmt-header-only
-)
+# target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
+#     fmt::fmt-header-only
+# )
 
 # -- post build stage --
-
-file(GLOB dlls ${PROJECT_SOURCE_DIR}/libs/*.dll)
-
-if(dlls)
-    add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        ${dlls}
-        $<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}> 
-        COMMAND_EXPAND_LISTS
-    )
-endif()
 
 # copying all data to build folder to make life easier
 
