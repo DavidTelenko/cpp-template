@@ -4,8 +4,6 @@
 #include <cmath>
 #include <lexer.hpp>
 
-#include "token.hpp"
-
 namespace calc {
 
 template <class F>
